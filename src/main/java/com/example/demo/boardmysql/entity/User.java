@@ -1,4 +1,4 @@
-package com.example.boardmysql.entity;
+package com.example.demo.boardmysql.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,6 @@ import lombok.Setter;
 @Setter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String email;
     private String name;
     private String create_date;

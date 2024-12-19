@@ -1,20 +1,19 @@
-package com.example.boardmysql.Controller;
+package com.example.demo.boardmysql.Controller;
 
-import com.example.boardmysql.entity.User;
-import com.example.boardmysql.service.BoardService;
+import com.example.demo.boardmysql.entity.User;
+import com.example.demo.boardmysql.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/board")
-public class BoardController {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
-    private BoardService boardService;
+    private UserService userService;
 
     @GetMapping("/hello")
     public String main() {
@@ -22,8 +21,8 @@ public class BoardController {
     }
 
     @PostMapping("/register")
-    public void registerBoard(@RequestBody User jpa) {
-        System.out.println(jpa.getName() + ", " + jpa.getEmail());
-        this.boardService.write(jpa);
+    public void registerUser(User user) {
+        System.out.println("저장 => " + user.getName() + ", " + user.getEmail());
+        this.userService.write(user);
     }
 }
